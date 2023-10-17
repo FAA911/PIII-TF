@@ -298,7 +298,8 @@ return [
         ],
         [
             'text' => 'Lista de productos',
-            'url' => '#',
+            'route' => 'producto.index',
+            // 'url' => 'panel/productos', // Otro ejemplo de cómo especificar la ruta
             'icon' => 'fas-fa-users', // icono de fontawesome
             'can' => 'lista_productos' // permiso del vendedor
         ],

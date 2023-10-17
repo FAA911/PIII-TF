@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->text('descripcion'); // TEXT
+            $table->decimal('precio', 10, 2); // DECIMAL(10,2)
+            $table->string('imagen', 100); // VARCHAR(100)
+            $table->unsignedBigInteger('categoria_id'); // BIGINT(20)
+            $table->unsignedBigInteger('vendedor_id'); // BIGINT(20)
+            
+            // Creamos la FK "categoria_id" que hace referencia al "id" de la tabla "categorías"
+            $table->foreign('categoria_id')->referencias('id')->on('categorias');
+
+            // Creamos la FK "vendedor_id" que hace referencia al "id" de la tabla "users"
+            $table->foreign('vendedor_id')->referencias('id')->on('users');
+
             $table->timestamps();
         });
     }
